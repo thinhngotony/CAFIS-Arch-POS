@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="WPSaturnEMoney.Views.Screen_emMT_F"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPSaturnEMoney.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024">
+    
+    <Grid Background="{Binding BackgroundColor}">
+        <ContentControl Template="{StaticResource Header}" VerticalAlignment="Top" Height="65" />
+        <ContentControl Template="{StaticResource Footer}" VerticalAlignment="Bottom" Height="65" />
+        <Label Content="取引が完了しました。" VerticalAlignment="Center" HorizontalAlignment="Center"
+               Foreground="{Binding BodyTextColor}" FontFamily="Meiryo" FontSize="60" />
+    </Grid>
+</UserControl>

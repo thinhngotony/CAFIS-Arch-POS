@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="WPSaturnEMoney.Views.Screen_emBalanceInquiryResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPSaturnEMoney.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024">
+
+    <Grid Background="{Binding BackgroundColor}">
+        <ContentControl Template="{StaticResource Header}" VerticalAlignment="Top" Height="65" />
+        <ContentControl Template="{StaticResource Footer}" VerticalAlignment="Bottom" Height="65" />
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,65,0,0" Width="860" Height="65" Background="#EDEDED">
+            <Border BorderThickness="1,0,1,1" BorderBrush="#AFAFAF"/>
+            <Label Content="ご請求金額" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="135,0,0,0" 
+                   FontFamily="MS Gothic" FontSize="36" Foreground="#000000" />
+            <Label Content="{Binding TotalPayment}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,135,0"
+                   Height="65" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+                   FontFamily="MS Gothic" FontSize="36" Foreground="#000000" />
+        </Grid>
+        <Label Content="残高照会" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,145,0,0"
+               Foreground="{Binding TitleColor}" FontFamily="MS Gothic" FontSize="44" />
+
+        <StackPanel Orientation="Vertical" Margin="0,20,0,0" VerticalAlignment="Center">
+            <Label Content="{Binding BrandName}" HorizontalAlignment="Center"
+               Height="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
+               Foreground="{Binding BodyTextColor}" FontFamily="MS Gothic" FontSize="60" />
+            <Rectangle Fill="{Binding BorderLineColor}" HorizontalAlignment="Center" Width="860" Height="15"/>
+            <Label Content="{Binding Balance}" HorizontalAlignment="Center"
+               Height="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom"
+               Foreground="{Binding NumberColor}" FontFamily="MS Gothic" FontSize="60"/>
+            <Rectangle Fill="{Binding BorderLineColor}" HorizontalAlignment="Center" Width="860" Height="15"/>
+            <Label Visibility="{Binding MessageVisibility}" HorizontalAlignment="Center" FontFamily="Meiryo" FontSize="34">
+                <TextBlock Text="{Binding Message}" Foreground="{Binding BodyTextColor}" TextAlignment="Center"
+                           LineHeight="70" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" />
+            </Label>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,78">
+            <Button Width="410" Height="105" FontSize="34"
+                    Content="電子マネー選択に戻る"
+                    Visibility="{Binding BtnVisibility}"
+                    Command="{Binding GoToScreen_emBalanceInquiry_Command}"
+                    Style="{StaticResource NormalButtonStyle}">
+            </Button>
+            <Button Width="410" Height="105" Margin="40,0,0,0" FontSize="34"
+                    Command="{Binding Btn2ndCommand}" Content="{Binding Btn2ndContent}"
+                    Style="{StaticResource NormalButtonStyle}" Visibility="{Binding Btn2ndVisibility}" Click="BtnClick">
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

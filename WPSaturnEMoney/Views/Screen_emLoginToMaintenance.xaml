@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="WPSaturnEMoney.Views.Screen_emLoginToMaintenance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPSaturnEMoney.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024"
+             Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
+
+    <Grid Background="{Binding BackgroundColor}">
+        <ContentControl Template="{StaticResource Header}" VerticalAlignment="Top" Height="65" />
+        <ContentControl Template="{StaticResource Footer}" VerticalAlignment="Bottom" Height="65" />
+
+        <Label Content="{Binding Message}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,90,0,0"
+               Foreground="{Binding TitleColor}" FontFamily="MS Gothic" FontSize="44" />
+
+        <Label Content="担当者コード" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="82,230,0,0"
+               Foreground="{Binding BodyTextColor}" FontFamily="MS Gothic" FontSize="36"/>
+
+        <Rectangle Fill="{Binding BorderLineColor}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="82,275,0,0" Width="450" Height="15"/>
+        <Rectangle Fill="{Binding BorderLineColor}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="82,360,0,0" Width="450" Height="15"/>
+
+        <PasswordBox x:Name="Input_ID" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,310,0,0"
+                     Width="350" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                     FontFamily="MS Gothic" FontSize="48" Cursor="None" PasswordChar="*" Focusable="False"
+                     Foreground="{Binding NumberColor}" Background="Transparent" BorderBrush="Transparent" />
+        
+        <Grid Margin="70,390,480,100">
+            <Label x:Name="ErrorMsg" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Meiryo" FontSize="36" Visibility="Hidden">
+                <TextBlock Text="{Binding InputCodeError}" Foreground="{Binding BodyTextColor}" TextAlignment="Center" 
+                           LineHeight="55" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight"/>
+            </Label>
+        </Grid>
+
+        <Grid Margin="590,185,135,90">
+            <Grid Margin="0,0,0,100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button x:Name="btn_7" Grid.Row="0" Grid.Column="0" Content="7" HorizontalAlignment="Left"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_8" Grid.Row="0" Grid.Column="2" Content="8" HorizontalAlignment="Center"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_9" Grid.Row="0" Grid.Column="4" Content="9" HorizontalAlignment="Right"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_4" Grid.Row="2" Grid.Column="0" Content="4" HorizontalAlignment="Left"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_5" Grid.Row="2" Grid.Column="2" Content="5" HorizontalAlignment="Center"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_6" Grid.Row="2" Grid.Column="4" Content="6" HorizontalAlignment="Right"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_1" Grid.Row="4" Grid.Column="0" Content="1" HorizontalAlignment="Left"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_2" Grid.Row="4" Grid.Column="2" Content="2" HorizontalAlignment="Center"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_3" Grid.Row="4" Grid.Column="4" Content="3" HorizontalAlignment="Right"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_0" Grid.Row="6" Grid.Column="0" Content="0" HorizontalAlignment="Left"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button Grid.Row="6" Grid.Column="2" Content="00" HorizontalAlignment="Center"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown">
+                </Button>
+                <Button x:Name="btn_Back" Grid.Row="6" Grid.Column="4" Content="←" HorizontalAlignment="Right"
+                        Style="{StaticResource NumPadButtonStyle}" PreviewMouseLeftButtonDown="Button_MouseDown" Visibility="Hidden">
+                </Button>
+            </Grid>
+            <Button x:Name="btn_Return" Content="確定" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Style="{StaticResource NumPadButtonStyle}" Width="195" FontSize="36"
+                    PreviewMouseLeftButtonDown="Button_MouseDown">
+            </Button>
+            <Button x:Name="btn_Clear" Content="C" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                    PreviewMouseLeftButtonDown="Button_MouseDown">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource NumPadButtonStyle}">
+                        <Setter Property="Background" Value="{Binding ClearButtonColor}"/>
+                        <Setter Property="Foreground" Value="{Binding ClearButtonLabelColor}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{Binding ClearButtonColor}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="{Binding ButtonPressedColor}"/>
+                                <Setter Property="Foreground" Value="{Binding ButtonPressedLabelColor}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

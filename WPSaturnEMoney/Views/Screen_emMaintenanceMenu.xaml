@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="WPSaturnEMoney.Views.Screen_emMaintenanceMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPSaturnEMoney.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024">
+
+    <Grid Background="{Binding BackgroundColor}">
+        <ContentControl Template="{StaticResource Header}" VerticalAlignment="Top" Height="65" />
+        <ContentControl Template="{StaticResource Footer}" VerticalAlignment="Bottom" Height="65" />
+
+        <Label Content="電子マネーメンテナンス" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,110,0,0"
+               Foreground="{Binding TitleColor}" FontFamily="MS Gothic" FontSize="44" />
+
+        <Grid Margin="82,212,82,212">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="12" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="12" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnCheckConnection" Grid.Row="0" Grid.Column="0" Content="再起動・疎通確認"
+                    Command="{Binding GoToScreen_emM_TA_Command}" FontSize="44"
+                    Style="{StaticResource NormalButtonStyle}"
+                    Click="btnCheckConnection_Click">
+            </Button>
+
+            <Button x:Name="btnDailyTotal" Grid.Row="0" Grid.Column="3" Content="日次精算"
+                    Command="{Binding GoToScreen_emMT_HJG_Command}" FontSize="44"
+                    Style="{StaticResource NormalButtonStyle}"
+                    Click="btnDailyTotal_Click">
+            </Button>
+
+            <Button Grid.Row="2" Grid.Column="0" Content="直前取引照会"
+                    Command="{Binding GoToScreen_emM_TA_Command}" FontSize="44"
+                    Visibility="{Binding BtnLastMinTransInquiryVisibility}"
+                    Style="{StaticResource NormalButtonStyle}"
+                    Click="btnTransactionInquiry_Click">
+            </Button>
+
+            <!--<Button x:Name="btnReprintReceipt" Grid.Row="2" Grid.Column="0" Content="レシート再印刷"
+                    Command="{Binding GoToScreen_emM_TA_Command}" FontSize="44"
+                    Style="{StaticResource NormalButtonStyle}"
+                    Click="btnReprintReceipt_Click">
+            </Button>-->
+
+            <Button Grid.Row="2" Grid.Column="3" Content="残高照会"
+                    Command="{Binding GoToScreen_emM_RV_Command}" FontSize="44"
+                    Visibility="{Binding BtnBalanceInquiryVisibility}"
+                    Style="{StaticResource NormalButtonStyle}"
+                    Click="btnBalanceInquiry_Click">
+            </Button>
+            
+            <Button Grid.Row="4" Grid.Column="3" Content="直前取引成否確認"
+                    Command="{Binding GoToScreen_emM_CH_Command}" FontSize="44"
+                    Visibility="{Binding BtnLastMinTransSuccessFailedVisibility}"
+                    Style="{StaticResource NormalButtonStyle}">
+            </Button>
+
+            <!--<Button Grid.Row="0" Grid.Column="3" Content="カード履歴照会"
+                    Command="{Binding GoToScreen_emM_CH_Command}" FontSize="44"
+                    Style="{StaticResource NormalButtonStyle}">
+            </Button>-->
+        </Grid>
+
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="82,0,0,78" Width="110" Height="105"
+                Command="{Binding GoToScreen_emS_Command}" Content="終了" FontSize="36"
+                Style="{StaticResource BackButtonStyle}">
+        </Button>
+    </Grid>
+</UserControl>

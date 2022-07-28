@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="WPSaturnEMoney.Views.Screen_emProcessOperation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPSaturnEMoney.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024"
+             Loaded="UserControl_Loaded">
+
+    <Grid Background="{Binding BackgroundColor}">
+        <ContentControl Template="{StaticResource Header}" VerticalAlignment="Top" Height="65" />
+        <ContentControl Template="{StaticResource Footer}" VerticalAlignment="Bottom" Height="65" />
+        <!--<Label Content="電子マネーを読ませてください。" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,85,0,0"
+               FontFamily="Meiryo" FontSize="56" Foreground="{Binding BodyTextColor}" />
+        
+        <Label Content="エラーが発生した場合は" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,590,0,0"
+               FontFamily="Meiryo" FontSize="32" Foreground="{Binding BodyTextColor}" />
+        <Label Content="お近くの係員を呼び出してください。" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,630,0,0"
+               FontFamily="Meiryo" FontSize="32" Foreground="{Binding BodyTextColor}" />-->
+        <Label VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Meiryo" FontSize="56" Margin="0,75,0,0">
+            <TextBlock Text="{Binding ListMessage[0]}" Foreground="{Binding BodyTextColor}" TextAlignment="Center"
+                           LineHeight="70" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" />
+        </Label>
+        <Label VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="Meiryo" FontSize="32" Margin="0,0,0,100">
+            <TextBlock Text="{Binding ListMessage[1]}" Foreground="{Binding BodyTextColor}" TextAlignment="Center"
+                           LineHeight="70" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" />
+        </Label>
+
+        <Image x:Name="GuideImage" Height="360" Margin="0,180,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <Button
+            VerticalAlignment="Bottom" HorizontalAlignment="Left"
+            Margin="82,0,0,70" Width="160" Height="105" FontSize="36"
+            Style="{StaticResource BackButtonStyle}"
+            Visibility="{Binding BtnVisibility}" Command="{Binding BtnCommand}">
+            <TextBlock Text="{Binding BtnContent}" TextAlignment="Center"/>
+        </Button>
+    </Grid>
+</UserControl>

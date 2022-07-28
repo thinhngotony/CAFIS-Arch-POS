@@ -1,0 +1,175 @@
+﻿<Window x:Class="WPSaturnEMoney.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPSaturnEMoney"
+        xmlns:viewmodels="clr-namespace:WPSaturnEMoney.ViewModels"
+        xmlns:view="clr-namespace:WPSaturnEMoney.Views"
+        mc:Ignorable="d"
+        Title="{Binding AppName}"
+        Height="768" Width="1024" WindowStyle="None" WindowState="Normal" ResizeMode="NoResize"
+        WindowStartupLocation="Manual" Top="0" Left="0"
+        Loaded="Window_Loaded"
+        Name="MainWindowUI">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMessage}">
+            <view:Screen_emMessage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emPayment}">
+            <view:Screen_emPayment />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emPaymentResult}">
+            <view:Screen_emPaymentResult />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emProcessOperation}">
+            <view:Screen_emProcessOperation />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emF}">
+            <view:Screen_emF />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMAorMI_EMSG}">
+            <view:Screen_emMAorMI_EMSG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emCM}">
+            <view:Screen_emCM />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emErrorToMaintenance}">
+            <view:Screen_emErrorToMaintenance />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emLoginToMaintenance}">
+            <view:Screen_emLoginToMaintenance />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_MSG}">
+            <view:Screen_emMT_MSG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMSorMT_TA}">
+            <view:Screen_emMSorMT_TA />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMS_MENU}">
+            <view:Screen_emMS_MENU />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emES_MENU}">
+            <view:Screen_emES_MENU />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emBalanceInquiry}">
+            <view:Screen_emBalanceInquiry />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emBalanceInquiryResult}">
+            <view:Screen_emBalanceInquiryResult />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMaintenanceMenuFromError}">
+            <view:Screen_emMaintenanceMenuFromError />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_RV}">
+            <view:Screen_emMT_RV />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_HV}">
+            <view:Screen_emMT_HV />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_TM}">
+            <view:Screen_emMT_TM />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_HRESJ}">
+            <view:Screen_emMT_HRESJ />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_ZRESJ}">
+            <view:Screen_emMT_ZRESJ />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_JGC1}">
+            <view:Screen_emMT_JGC1 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_JGC2}">
+            <view:Screen_emMT_JGC2 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_EMSG}">
+            <view:Screen_emMT_EMSG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_SMSG}">
+            <view:Screen_emMT_SMSG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_ZJG}">
+            <view:Screen_emMT_ZJG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_HJG}">
+            <view:Screen_emMT_HJG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_TA}">
+            <view:Screen_emM_TA />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_EMSG}">
+            <view:Screen_emM_EMSG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_SMSG}">
+            <view:Screen_emM_SMSG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_CH}">
+            <view:Screen_emM_CH />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_HRES}">
+            <view:Screen_emM_HRES />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMT_F}">
+            <view:Screen_emMT_F />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emMaintenanceMenu}">
+            <view:Screen_emMaintenanceMenu />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_RV}">
+            <view:Screen_emM_RV />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_TM}">
+            <view:Screen_emM_TM />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_ZRES}">
+            <view:Screen_emM_ZRES />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_ZRESJ}">
+            <view:Screen_emM_ZRESJ />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_HRESJ}">
+            <view:Screen_emM_HRESJ />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_ZJG}">
+            <view:Screen_emM_ZJG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_HJG}">
+            <view:Screen_emM_HJG />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_JGC1}">
+            <view:Screen_emM_JGC1 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_JGC2}">
+            <view:Screen_emM_JGC2 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_TTLC}">
+            <view:Screen_emM_TTLC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewModel_emM_F}">
+            <view:Screen_emM_F />
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid x:Name="axOpGrid" Visibility="Hidden"/>
+        <Grid Height="768" Width="1024" >
+            <Popup x:Name="PopupNotification" IsOpen="False" Height="638" Width="860" PlacementRectangle="82,65,860,0" PlacementTarget="{Binding ElementName=MainWindowUI}">
+                <Grid Height="638" Width="860" Background="White">
+                    <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Meiryo" FontSize="44" Margin="0,0,0,80">
+                        <TextBlock Name="MessageNotification" Text="12341234" Foreground="{Binding BodyTextColor}" TextAlignment="Center"
+                            LineHeight="70" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" />
+                    </Label>
+                    <Button
+                        x:Name="PopupBtnOK"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                        Margin="0,0,0,13" Width="410" Height="105"
+                        FontFamily="MS Gothic" Style="{StaticResource NormalButtonStyle}"
+                        Content="OK" FontSize="44" Click="PopupBtnOKClick">
+                    </Button>
+                </Grid>
+            </Popup>
+            <ContentControl x:Name="ContentControl" Content="{Binding Path=CurrentViewModel}" Margin="0,0,0,0"/>
+        </Grid>
+    </Grid>
+</Window>
